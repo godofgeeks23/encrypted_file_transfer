@@ -30,9 +30,11 @@ read    (pipe standard output to file you'd like it written to)
 
 ### Cipher options:
 
-none
-aes128
-aes256
+`none`
+
+`aes128`
+
+`aes256`
 
 Key parameter only used when cipher!=none.
 
