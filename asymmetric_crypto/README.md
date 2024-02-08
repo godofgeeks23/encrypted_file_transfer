@@ -14,6 +14,37 @@ Step 1: Run the code on both devices to generate key pairs. Save the keys in fil
 
 ```
 # Server device
+python generate_server_keys.py
+```
+
+```
+# Client device
+python generate_client_keys.py
+```
+
+Step 2: Transfer the public keys between the devices securely. You can use secure channels like SSH, HTTPS, or manually transfer the keys using a USB drive.
+
+
+Step 3: On the client device, encrypt a file (`file_to_encrypt.py`) using the server's public key:
+
+```
+python client.py
+```
+
+Step 4: Transfer the encrypted file ('encrypted_file.bin') to the server device using a secure channel.
+
+Step 5: On the server device, decrypt the encrypted file using the server's private key to get the original file back :
+
+```
+python server.py
+```
+
+
+## How it works
+
+We generate key pairs for both - client and server - 
+```
+# Server device
 server_private_key, server_public_key = generate_key_pair()
 save_key_to_file(server_private_key, 'server_private_key.pem')
 save_key_to_file(server_public_key, 'server_public_key.pem')
@@ -26,21 +57,16 @@ save_key_to_file(client_private_key, 'client_private_key.pem')
 save_key_to_file(client_public_key, 'client_public_key.pem')
 ```
 
-Step 2: Transfer the public keys between the devices securely. You can use secure channels like SSH, HTTPS, or manually transfer the keys using a USB drive.
-
-Step 3: On the client device, encrypt a file using the server's public key:
+Encryption is done using the server's public key - 
 
 ```
-client_public_key = load_key_from_file('client_public_key.pem')
-encrypted_data = encrypt_file('file_to_encrypt.txt', client_public_key)
+server_public_key = load_key_from_file('server_public_key.pem')
+encrypted_data = encrypt_file('file_to_encrypt.txt', server_public_key)
 with open('encrypted_file.bin', 'wb') as f:
     f.write(encrypted_data)
-
 ```
 
-Step 4: Transfer the encrypted file ('encrypted_file.bin') to the server device using a secure channel.
-
-Step 5: On the server device, decrypt the encrypted file using the server's private key:
+On the server device, decrypt the encrypted file using the server's private key:
 
 ```
 server_private_key = load_key_from_file('server_private_key.pem')
@@ -52,8 +78,3 @@ with open('decrypted_file.txt', 'wb') as f:
 ```
 
 After completing these steps, the file ('file_to_encrypt.txt') is securely transferred from the client device to the server device. It's encrypted during transit using the server's public key and can only be decrypted by the server using its private key.
-
-
-
-
-
