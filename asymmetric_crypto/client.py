@@ -1,16 +1,8 @@
+# use this for encryption
+
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 import os
-
-def generate_key_pair():
-    key = RSA.generate(2048)
-    private_key = key.export_key()
-    public_key = key.publickey().export_key()
-    return private_key, public_key
-
-def save_key_to_file(key, filename):
-    with open(filename, 'wb') as f:
-        f.write(key)
 
 def load_key_from_file(filename):
     with open(filename, 'rb') as f:
@@ -34,12 +26,9 @@ def decrypt_file(encrypted_data, private_key):
 
 # Example usage
 if __name__ == "__main__":
-    # Load server public key
     server_public_key = load_key_from_file('server_public_key.pem')
 
-    # Encrypt file with server public key
     encrypted_data = encrypt_file('file_to_encrypt.txt', server_public_key)
 
-    # Save encrypted file
     with open('encrypted_file.bin', 'wb') as f:
         f.write(encrypted_data)
