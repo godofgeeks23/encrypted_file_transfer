@@ -1,19 +1,8 @@
+# use this for decryption
+
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 import os
-
-
-def generate_key_pair():
-    key = RSA.generate(2048)
-    private_key = key.export_key()
-    public_key = key.publickey().export_key()
-    return private_key, public_key
-
-
-def save_key_to_file(key, filename):
-    with open(filename, 'wb') as f:
-        f.write(key)
-
 
 def load_key_from_file(filename):
     with open(filename, 'rb') as f:
