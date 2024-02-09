@@ -1,7 +1,4 @@
-'''
-Client program
 
-'''
 from __future__ import print_function
 from datetime import datetime
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
