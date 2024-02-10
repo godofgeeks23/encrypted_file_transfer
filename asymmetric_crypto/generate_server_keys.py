@@ -2,15 +2,18 @@ from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 import os
 
+
 def generate_key_pair():
     key = RSA.generate(2048)
     private_key = key.export_key()
     public_key = key.publickey().export_key()
     return private_key, public_key
 
+
 def save_key_to_file(key, filename):
     with open(filename, 'wb') as f:
         f.write(key)
+
 
 if __name__ == "__main__":
     # Generate key pair for server
