@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from random import choice
 from string import digits, ascii_lowercase, ascii_uppercase
