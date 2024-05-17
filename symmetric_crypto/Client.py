@@ -34,7 +34,7 @@ def eprint(*args, **kwargs):
 def initparse():
     # Set up the required arguements with a parser
     parser = argparse.ArgumentParser(
-        description="Client for CPSC526 Assignment 3")
+        description="Client for CPSC526 Assignment-3")
     parser.add_argument("command", type=str, choices=[
                         "write", "read"], help="Determines if the client will be uploading or downloading to/from the server")
     parser.add_argument(
