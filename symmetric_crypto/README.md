@@ -2,6 +2,10 @@
 
 Network data-transfer system that uses symmetric encryption for communication.
 
+About Symmetric Encryption:
+Symmetric encryption is a type of encryption where only one key (a secret key) is used to both encrypt and decrypt electronic information. The entities communicating via symmetric encryption must exchange the key so that it can be used in the decryption process.
+
+
 ## Usage
 
 ### Server side
