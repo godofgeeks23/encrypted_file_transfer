@@ -35,7 +35,9 @@ E.g. ```$ python3 Client.py read 1GB.bin 221.119.52.32:4523 aes256 password > 1G
 Supported commands:
 
 `write`   (must pipe the file to write in standard input)
+
 `read`    (pipe standard output to file you'd like it written to)
+
 
 ### Cipher options:
 
