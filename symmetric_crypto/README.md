@@ -17,7 +17,9 @@ On the Server side you run the code as follows:
 
 E.g. ```$ python3 Server.py 4444 password```
 
+
 ### Client side
+
 
 On the Client side you run the code as follows:
 
