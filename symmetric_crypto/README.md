@@ -38,6 +38,7 @@ read    (pipe standard output to file you'd like it written to)
 
 ### Cipher options:
 
+
 `none`
 
 `aes128`
