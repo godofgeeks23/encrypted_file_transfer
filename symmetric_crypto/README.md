@@ -28,7 +28,9 @@ On the Client side you run the code as follows:
 E.g. ```$ python3 Client.py write 1MB.bin 136.157.19.23:4444 aes128 pass1234 < 1MB.bin```
 E.g. ```$ python3 Client.py read 1GB.bin 221.119.52.32:4523 aes256 password > 1GB.bin```
 
+
 ### Command line options
+
 
 Supported commands:
 write   (must pipe the file to write in standard input)
